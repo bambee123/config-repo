@@ -2,15 +2,15 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: product-service
-          uri: lb://product-service
+        - id: product-service-route
+          uri: http://localhost:8081  # <-- Direct URL to product-service
           predicates:
-            - Path=/products/**
-        - id: order-service
-          uri: lb://order-service
+            - Path=/api/products/**
+        - id: order-service-route
+          uri: http://localhost:8082  # <-- Direct URL to order-service
           predicates:
-            - Path=/orders/**
-        - id: front-api
-          uri: lb://front-api
+            - Path=/api/orders/**
+        - id: front-api-route
+          uri: http://localhost:8083  # <-- Direct URL to front-api
           predicates:
-            - Path=/api/**
+            - Path=/api/front/**
