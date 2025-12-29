@@ -1,6 +1,8 @@
 spring:
+  config:
+    import: optional:configserver: # <-- AJOUTEZ CETTE LIGNE
   datasource:
-    url: jdbc:mysql://localhost:3306/product_db?useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/db_produits?serverTimezone=UTC
     username: root
     password: password
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -9,3 +11,5 @@ spring:
       ddl-auto: update
     show-sql: true
 
+server:
+  port: 8081
